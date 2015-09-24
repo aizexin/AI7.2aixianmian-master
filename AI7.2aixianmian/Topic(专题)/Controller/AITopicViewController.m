@@ -18,7 +18,6 @@
 /**
  *  当前页面
  */
-
 @property(nonatomic,assign)NSInteger *currentPage;
 @property(nonatomic,assign,getter=isLoading)BOOL loading;
 @property(nonatomic,assign,getter=isRefrshing)BOOL refreshing;
@@ -56,14 +55,48 @@
     _tableV.dataSource = self;
     [self.view addSubview:_tableV];
     [self.requestModel startRequestInfo];
+    [self refreshAndLoad];
+}
+
+#pragma mark-刷新加载
+-(void)refreshAndLoad{
+     [self.tableV addHeaderWithCallback:^{
+         if (!self.isRefrshing) {
+             self.refreshing = YES;
+             if (self.dataSource.count > 0) {
+                 [self.dataSource removeAllObjects];
+             }
+             [self.requestModel startRequestInfo];
+             [self.tableV headerEndRefreshing];
+             self.refreshing = NO;
+             
+             return ;
+         }
+     }];
+    [self.tableV addFooterWithCallback:^{
+        if (!self.isLoading) {
+            self.loading = YES;
+            /*if (self.dataSource.count > 0) {
+                [self.dataSource removeAllObjects];
+            }*/
+            self.currentPage ++;
+            self.requestModel.path = [NSString stringWithFormat:SUBJECT_URL,_currentPage];
+            [self.requestModel startRequestInfo];
+            [self.tableV footerEndRefreshing];
+            self.loading = NO;
+        }
+        return ;
+    }];
     
 }
+
 #pragma mark -AIRequestModelDelegate
 -(void)requestSendMessage:(NSData *)data andPath:(NSString *)path{
     NSArray *array = [NSJSONSerialization JSONObjectWithData:data options:(NSJSONReadingMutableContainers) error:nil];
     [self.dataSource addObjectsFromArray:array];
     [self.tableV reloadData];
 }
+
 #pragma mark -UITableViewDataSource
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.dataSource.count;
@@ -84,6 +117,7 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 308;
 }
+
 #pragma mark -UITableViewDelegate
 
 
