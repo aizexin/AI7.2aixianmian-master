@@ -60,7 +60,7 @@
             self.stateLabel.text = @"收费";
         }
         self.detailText.text = dict[@"description_long"];
-        //为滚动视图添加呢荣视图
+        //为滚动视图添加图片视图
         //获取小图
         NSArray *photos = dict[@"photos"];
         for (int i = 0; i < photos.count; i++) {

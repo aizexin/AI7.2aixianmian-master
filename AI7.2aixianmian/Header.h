@@ -35,8 +35,8 @@
 
 //专题
 #define SUBJECT_TYPE 5
-#define SUBJECT_URL @"http://iappfree.candou.com:8080/free/special?page=%d&limit=5"
-// http://10.0.8.10/app/qfts/iappfree/api/topic.php?page=1&number=20
+//#define SUBJECT_URL @"http://iappfree.candou.com:8080/free/special?page=%d&limit=5"
+#define SUBJECT_URL @"http://10.0.8.10/app/qfts/iappfree/api/topic.php?page=%d&number=10"
 
 //搜索
 #define SEARCH_TYPE 6

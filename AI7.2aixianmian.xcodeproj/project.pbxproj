@@ -66,6 +66,9 @@
 		BCEEDACB1BB3A0F600DE11A8 /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = BCEEDAC21BB3A0F600DE11A8 /* UIScrollView+MJRefresh.m */; };
 		BCEEDACC1BB3A0F600DE11A8 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = BCEEDAC41BB3A0F600DE11A8 /* UIView+Extension.m */; };
 		BCEEDACF1BB3AA0100DE11A8 /* AIDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCEEDACE1BB3AA0100DE11A8 /* AIDetailViewController.m */; };
+		BCEEDB071BB3EB3A00DE11A8 /* AITopicCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = BCEEDB051BB3EB3A00DE11A8 /* AITopicCellView.m */; };
+		BCEEDB081BB3EB3A00DE11A8 /* AITopicCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCEEDB061BB3EB3A00DE11A8 /* AITopicCellView.xib */; };
+		BCEEDB0B1BB3ED9900DE11A8 /* AITopicView.m in Sources */ = {isa = PBXBuildFile; fileRef = BCEEDB0A1BB3ED9900DE11A8 /* AITopicView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -197,6 +200,11 @@
 		BCEEDAC41BB3A0F600DE11A8 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 		BCEEDACD1BB3AA0100DE11A8 /* AIDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIDetailViewController.h; sourceTree = "<group>"; };
 		BCEEDACE1BB3AA0100DE11A8 /* AIDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIDetailViewController.m; sourceTree = "<group>"; };
+		BCEEDB041BB3EB3A00DE11A8 /* AITopicCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITopicCellView.h; sourceTree = "<group>"; };
+		BCEEDB051BB3EB3A00DE11A8 /* AITopicCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITopicCellView.m; sourceTree = "<group>"; };
+		BCEEDB061BB3EB3A00DE11A8 /* AITopicCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AITopicCellView.xib; sourceTree = "<group>"; };
+		BCEEDB091BB3ED9900DE11A8 /* AITopicView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITopicView.h; sourceTree = "<group>"; };
+		BCEEDB0A1BB3ED9900DE11A8 /* AITopicView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITopicView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -458,10 +466,9 @@
 		BCBB09F61BB2CE6B004492D5 /* Topic(专题) */ = {
 			isa = PBXGroup;
 			children = (
+				BCEEDB021BB3EB1D00DE11A8 /* Model */,
+				BCEEDB031BB3EB1D00DE11A8 /* View */,
 				BCBB09F71BB2CE6B004492D5 /* Controller */,
-				BCBB09F81BB2CE6B004492D5 /* Model */,
-				BCBB09F91BB2CE6B004492D5 /* Other */,
-				BCBB09FA1BB2CE6B004492D5 /* VIew */,
 			);
 			path = "Topic(专题)";
 			sourceTree = "<group>";
@@ -473,27 +480,6 @@
 				BCBB0A6D1BB2D1FC004492D5 /* AITopicViewController.m */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		BCBB09F81BB2CE6B004492D5 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		BCBB09F91BB2CE6B004492D5 /* Other */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Other;
-			sourceTree = "<group>";
-		};
-		BCBB09FA1BB2CE6B004492D5 /* VIew */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = VIew;
 			sourceTree = "<group>";
 		};
 		BCBB09FB1BB2CEBE004492D5 /* Libs */ = {
@@ -678,6 +664,25 @@
 			path = Refresh_2014_8_6;
 			sourceTree = "<group>";
 		};
+		BCEEDB021BB3EB1D00DE11A8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BCEEDB031BB3EB1D00DE11A8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BCEEDB041BB3EB3A00DE11A8 /* AITopicCellView.h */,
+				BCEEDB051BB3EB3A00DE11A8 /* AITopicCellView.m */,
+				BCEEDB061BB3EB3A00DE11A8 /* AITopicCellView.xib */,
+				BCEEDB091BB3ED9900DE11A8 /* AITopicView.h */,
+				BCEEDB0A1BB3ED9900DE11A8 /* AITopicView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -761,6 +766,7 @@
 				BCBB07681BB28251004492D5 /* Main.storyboard in Resources */,
 				BCBB076D1BB28251004492D5 /* LaunchScreen.xib in Resources */,
 				BCEEDAC51BB3A0F600DE11A8 /* MJRefresh.bundle in Resources */,
+				BCEEDB081BB3EB3A00DE11A8 /* AITopicCellView.xib in Resources */,
 				BCBB0A4D1BB2CF02004492D5 /* LICENSE in Resources */,
 				BCBB0A681BB2D106004492D5 /* LoveFree.plist in Resources */,
 				BCBB076A1BB28251004492D5 /* Images.xcassets in Resources */,
@@ -817,9 +823,11 @@
 				BCBB0AAB1BB2D2C2004492D5 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				BCBB0AA31BB2D2C2004492D5 /* AFHTTPRequestOperationManager.m in Sources */,
 				BCBB0AA81BB2D2C2004492D5 /* AFURLRequestSerialization.m in Sources */,
+				BCEEDB071BB3EB3A00DE11A8 /* AITopicCellView.m in Sources */,
 				BCEEDAC81BB3A0F600DE11A8 /* MJRefreshFooterView.m in Sources */,
 				BCBB0A581BB2CF02004492D5 /* MMVectorImage.m in Sources */,
 				BCBB0A7A1BB2D255004492D5 /* AIHotViewController.m in Sources */,
+				BCEEDB0B1BB3ED9900DE11A8 /* AITopicView.m in Sources */,
 				BCBB0AAD1BB2D2C2004492D5 /* UIAlertView+AFNetworking.m in Sources */,
 				BCBB0A621BB2D0C4004492D5 /* AIRequestModel.m in Sources */,
 				BCBB0AB11BB2D2C2004492D5 /* UIRefreshControl+AFNetworking.m in Sources */,

@@ -7,31 +7,85 @@
 //
 
 #import "AITopicViewController.h"
+#import "AIRequestModel.h"
+#import "Header.h"
+#import "UIImageView+AFNetworking.h"
+#import "AIDetailViewController.h"
+#import "MJRefresh.h"
+#import "AIDefine.h"
+#import "AITopicCellView.h"
+@interface AITopicViewController ()<AIRequestModelDelegate,UITableViewDataSource,UITableViewDelegate>
+/**
+ *  当前页面
+ */
 
-@interface AITopicViewController ()
+@property(nonatomic,assign)NSInteger *currentPage;
+@property(nonatomic,assign,getter=isLoading)BOOL loading;
+@property(nonatomic,assign,getter=isRefrshing)BOOL refreshing;
+@property(nonatomic,strong)AIRequestModel *requestModel;
 
+
+@property(nonatomic,strong)UITableView *tableV;
+@property(nonatomic,strong)NSMutableArray *dataSource;
 @end
 
 @implementation AITopicViewController
 
+-(AIRequestModel *)requestModel{
+    if (!_requestModel) {
+        _requestModel = [[AIRequestModel alloc]init];
+        _currentPage = 1;
+        _requestModel.path = [NSString stringWithFormat:SUBJECT_URL,_currentPage];
+        _requestModel.delegate = self;
+    }
+    return _requestModel;
+}
+
+-(NSMutableArray *)dataSource{
+    if (!_dataSource) {
+        _dataSource = [NSMutableArray array];
+    }
+    return _dataSource;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    //初始化表格
+    _tableV = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, Mainsize.width, Mainsize.height) style:(UITableViewStylePlain)];
+    _tableV.delegate = self;
+    _tableV.dataSource = self;
+    [self.view addSubview:_tableV];
+    [self.requestModel startRequestInfo];
+    
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark -AIRequestModelDelegate
+-(void)requestSendMessage:(NSData *)data andPath:(NSString *)path{
+    NSArray *array = [NSJSONSerialization JSONObjectWithData:data options:(NSJSONReadingMutableContainers) error:nil];
+    [self.dataSource addObjectsFromArray:array];
+    [self.tableV reloadData];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark -UITableViewDataSource
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return self.dataSource.count;
 }
-*/
+-(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString *identifier = @"topicCell";
+    AITopicCellView *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    if (!cell) {
+        cell = [[[NSBundle mainBundle]loadNibNamed:@"AITopicCellView" owner:nil options:nil]lastObject];
+    }
+    //为单元格添加内容
+    cell.titleLabel.text = self.dataSource[indexPath.row][@"title"];
+    [cell.bigImageV setImageWithURL:[NSURL URLWithString:self.dataSource[indexPath.row][@"img"]] placeholderImage:[UIImage imageNamed:@"topic_TopicImage_Default"]];
+    [cell.smallImageV setImageWithURL:[NSURL URLWithString:self.dataSource[indexPath.row][@"desc_img"]] placeholderImage:[UIImage imageNamed:@"topic_TopicImage_Default"]];
+    cell.detailText.text = self.dataSource[indexPath.row][@"desc"];
+    return cell;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 308;
+}
+#pragma mark -UITableViewDelegate
+
+
 
 @end
