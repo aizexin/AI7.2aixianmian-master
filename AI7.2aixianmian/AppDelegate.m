@@ -51,10 +51,10 @@
         
         //<11>为tabBar添加图片按钮
         NSString * imageStr = smallDic[@"imageName"];
-        nav.tabBarItem.image = [UIImage imageNamed:imageStr];
+        nav.tabBarItem.image = [[UIImage imageNamed:imageStr]imageWithRenderingMode:(UIImageRenderingModeAlwaysOriginal)];
         
         NSString * selectImageStr = smallDic[@"selectedImage"];
-        nav.tabBarItem.selectedImage = [UIImage imageNamed:selectImageStr];
+        nav.tabBarItem.selectedImage = [[UIImage imageNamed:selectImageStr]imageWithRenderingMode:(UIImageRenderingModeAlwaysOriginal)];
         
         //<12>将导航控制器添加到数组中
         [controllers addObject:nav];

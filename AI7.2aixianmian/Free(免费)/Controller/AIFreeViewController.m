@@ -9,29 +9,26 @@
 #import "AIFreeViewController.h"
 
 @interface AIFreeViewController ()
-
+@property(nonatomic,strong)AIRequestModel *requestModel;
 @end
 
 @implementation AIFreeViewController
 
+-(AIRequestModel *)requestModel{
+    if (!_requestModel) {
+        _requestModel = [[AIRequestModel alloc]init];
+        _requestModel.path = [NSString stringWithFormat:FREE_URL,1];
+        _requestModel.delegate = self;
+    }
+    return _requestModel;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self.requestModel startRequestInfo];
+    [self refreshAndLoad:FREE_URL];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

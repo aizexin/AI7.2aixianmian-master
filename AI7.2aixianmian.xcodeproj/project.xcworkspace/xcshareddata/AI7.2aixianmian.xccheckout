@@ -7,34 +7,34 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>5B44FD5A-A4D0-418D-A53F-9FF5E3A91F20</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>AI7.2aixianmian</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>FF118A97383180B6450A4B377063DD66ED62B232</key>
-		<string>https://github.com/aizexin/AI7.2aixianmian.git</string>
+		<key>860275F521F642FAA89D4F1BC73E38259D0629D8</key>
+		<string>https://github.com/aizexin/AI7.2aixianmian-master.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>AI7.2aixianmian.xcodeproj/project.xcworkspace</string>
+	<string>AI7.2aixianmian.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>FF118A97383180B6450A4B377063DD66ED62B232</key>
+		<key>860275F521F642FAA89D4F1BC73E38259D0629D8</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/aizexin/AI7.2aixianmian.git</string>
+	<string>https://github.com/aizexin/AI7.2aixianmian-master.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>FF118A97383180B6450A4B377063DD66ED62B232</string>
+	<string>860275F521F642FAA89D4F1BC73E38259D0629D8</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>FF118A97383180B6450A4B377063DD66ED62B232</string>
+			<string>860275F521F642FAA89D4F1BC73E38259D0629D8</string>
 			<key>IDESourceControlWCCName</key>
-			<string>AI7.2aixianmian</string>
+			<string>AI7.2aixianmian-master</string>
 		</dict>
 	</array>
 </dict>

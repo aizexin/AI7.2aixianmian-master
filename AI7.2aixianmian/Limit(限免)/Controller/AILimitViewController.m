@@ -8,10 +8,9 @@
 
 #import "AILimitViewController.h"
 #import "AIRequestModel.h"
-#import "Header.h"
 #import "AIFreeAppCellModel.h"
-@interface AILimitViewController ()<AIRequestModelDelegate>
-@property(nonatomic,strong)AIRequestModel *requestModel;;
+@interface AILimitViewController ()
+@property(nonatomic,strong)AIRequestModel *requestModel;
 @end
 
 @implementation AILimitViewController
@@ -19,7 +18,8 @@
 -(AIRequestModel *)requestModel{
     if (!_requestModel) {
         _requestModel = [[AIRequestModel alloc]init];
-        _requestModel.path = LIMIT_URL;
+        _requestModel.path = [NSString stringWithFormat:LIMIT_URL,1];
+        _requestModel.delegate = self;
     }
     return _requestModel;
 }
@@ -27,22 +27,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.requestModel startRequestInfo];
+    [self refreshAndLoad:LIMIT_URL];
 }
 
-#pragma mark -AIRequestModelDelegate
+/*#pragma mark -AIRequestModelDelegate
 -(void)requestSendMessage:(NSData *)data andPath:(NSString *)path{
     if (self.dataSource.count > 0) {
         [self.dataSource removeAllObjects];
     }
 #warning mark -准备解析数据
-//    NSDictionary *responseObject =
-//    NSArray *applications = responseObject[@"applications"];
-//    for (NSDictionary *itemDict in applications) {
-//        AIFreeAppCellModel *model = [AIFreeAppCellModel freeAppCellModelWithDict:itemDict];
-//        [self.dataSource addObject:model];
-//    }
-//    [self.tableV reloadData];
-}
+    NSDictionary *responseObject = (NSDictionary*)data;
+    NSArray *applications = responseObject[@"applications"];
+    for (NSDictionary *itemDict in applications) {
+        AIFreeAppCellModel *model = [AIFreeAppCellModel freeAppCellModelWithDict:itemDict];
+        [self.dataSource addObject:model];
+    }
+    [self.tableV reloadData];
+}*/
 
 
 
