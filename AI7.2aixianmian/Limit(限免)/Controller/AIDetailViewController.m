@@ -10,11 +10,23 @@
 #import "AIRequestModel.h"
 #import "Header.h"
 #import "UIImageView+AFNetworking.h"
+#import "AIAppModel.h"
+#import "AIDBModel.h"
 @interface AIDetailViewController ()<AIRequestModelDelegate>
-
+/**
+ *  接受当前应用属性信息
+ */
+@property(nonatomic,strong)AIAppModel *appModel;
 @end
 
 @implementation AIDetailViewController
+
+-(AIAppModel *)appModel{
+    if (!_appModel) {
+        _appModel = [[AIAppModel alloc]init];
+    }
+    return _appModel;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -70,6 +82,14 @@
         }
         self.scroll.contentSize = CGSizeMake(65 * photos.count, 80);
         self.scroll.contentOffset = CGPointMake(0, 0);
+        
+        //为持久性存储的成员属性赋值
+        self.appModel.appId = self.applicationId;
+        self.appModel.appName = appTitle;
+        self.appModel.appImage = appImage;
+        
+        
+        
     }else{
         NSArray *smallArray = dict[@"applications"];
         UIScrollView *smallScroll = (UIScrollView *)[self.view viewWithTag:998];
@@ -161,11 +181,13 @@
     [self.view addSubview:smallScroll];
     
     NSArray *array = @[@"分享",@"收藏",@"下载"];
+    NSArray *disArray = @[@"已分享",@"已收藏",@"已下载"];
     NSArray *imageArray = @[@"Detail_btn_left",@"Detail_btn_middle",@"Detail_btn_right"];
     for (int i = 0; i < 3; i++) {
         UIButton *btn = [UIButton buttonWithType:(UIButtonTypeCustom)];
         btn.frame = CGRectMake(10 + 100 * i, 80, 100, 42);
         [btn setTitle:array[i] forState:(UIControlStateNormal)];
+        [btn setTitle:disArray[i] forState:(UIControlStateDisabled)];
         [btn setBackgroundImage:[UIImage imageNamed:imageArray[i]] forState:(UIControlStateNormal)];
         [btn setTitleColor:[UIColor blackColor] forState:(UIControlStateNormal)];
         btn.tag = i + 1;
@@ -177,7 +199,31 @@
 
 #pragma mark -按钮点击事件
 -(void)onClickBtn:(UIButton*)btn{
-    
+    switch (btn.tag) {
+        case 1:{
+//            [btn setTitle:@"已分享" forState:(UIControlStateDisabled)];
+            AIDBModel *dbModel = [AIDBModel shareDBModel];
+            [dbModel insertAppModel:_appModel andType:@"share"];
+            break;
+        }
+         
+        case 2:{
+            
+//            [btn setTitle:@"已收藏" forState:(UIControlStateDisabled)];
+            AIDBModel *dbModel = [AIDBModel shareDBModel];
+            [dbModel insertAppModel:_appModel andType:@"collection"];
+        }
+            break;
+        case 3:{
+//            [btn setTitle:@"已下砸" forState:(UIControlStateDisabled)];
+            AIDBModel *dbModel = [AIDBModel shareDBModel];
+            [dbModel insertAppModel:_appModel andType:@"downLoad"];
+        }
+            break;
+        default:
+            break;
+    }
+    btn.enabled = NO;
 }
 -(void)onClickImage:(UITapGestureRecognizer*)tap{
     //获取点击的图片视图s
@@ -187,6 +233,30 @@
     AIDetailViewController *detailVC = [[AIDetailViewController alloc]init];
     detailVC.applicationId = [NSString stringWithFormat:@"%ld",indexTag];
     [self.navigationController pushViewController:detailVC animated:YES];
+}
+
+#pragma mark -生命周期函数
+-(void)viewWillAppear:(BOOL)animated{
+    //判断该应用是否被 分享 收藏 下载
+    UIButton *btn1 = (UIButton*)[self.view viewWithTag:1];
+    UIButton *btn2 = (UIButton*)[self.view viewWithTag:2];
+    UIButton *btn3 = (UIButton*)[self.view viewWithTag:3];
+    
+    AIDBModel *dbModel = [AIDBModel shareDBModel];
+    BOOL isExistsShare = [dbModel isExistsAppModelWithID:self.applicationId andType:@"share"];
+    BOOL isExistsDownLoad = [dbModel isExistsAppModelWithID:self.applicationId andType:@"downLoad"];
+    BOOL isExistsCollection= [dbModel isExistsAppModelWithID:self.applicationId andType:@"collection"];
+    
+    //设置按钮状态
+    if (isExistsShare) {
+        btn1.enabled = NO;
+    }
+    if (isExistsDownLoad) {
+        btn3.enabled = NO;
+    }
+    if (isExistsCollection) {
+        btn2.enabled = NO;
+    }
 }
 
 

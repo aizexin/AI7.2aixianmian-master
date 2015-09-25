@@ -60,6 +60,14 @@
 		BCED4ED71BB4E0E90087DCA1 /* AICategoryCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = BCED4ED61BB4E0E90087DCA1 /* AICategoryCellView.m */; };
 		BCED4EDA1BB4E29C0087DCA1 /* AICategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCED4ED91BB4E29C0087DCA1 /* AICategoryViewController.m */; };
 		BCED4EE21BB4F3930087DCA1 /* AISettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCED4EE11BB4F3930087DCA1 /* AISettingViewController.m */; };
+		BCED4EE51BB51D4A0087DCA1 /* AIAppModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCED4EE41BB51D4A0087DCA1 /* AIAppModel.m */; };
+		BCED4EF21BB5201B0087DCA1 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = BCED4EE81BB5201B0087DCA1 /* FMDatabase.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BCED4EF31BB5201B0087DCA1 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BCED4EEA1BB5201B0087DCA1 /* FMDatabaseAdditions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BCED4EF41BB5201B0087DCA1 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = BCED4EEC1BB5201B0087DCA1 /* FMDatabasePool.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BCED4EF51BB5201B0087DCA1 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = BCED4EEE1BB5201B0087DCA1 /* FMDatabaseQueue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BCED4EF61BB5201B0087DCA1 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = BCED4EF01BB5201B0087DCA1 /* FMResultSet.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BCED4EF71BB5201B0087DCA1 /* readMe.m in Sources */ = {isa = PBXBuildFile; fileRef = BCED4EF11BB5201B0087DCA1 /* readMe.m */; };
+		BCED4EF91BB520290087DCA1 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BCED4EF81BB520290087DCA1 /* libsqlite3.dylib */; };
 		BCEEDAC51BB3A0F600DE11A8 /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BCEEDAB51BB3A0F600DE11A8 /* MJRefresh.bundle */; };
 		BCEEDAC61BB3A0F600DE11A8 /* MJRefreshBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = BCEEDAB81BB3A0F600DE11A8 /* MJRefreshBaseView.m */; };
 		BCEEDAC71BB3A0F600DE11A8 /* MJRefreshConst.m in Sources */ = {isa = PBXBuildFile; fileRef = BCEEDABA1BB3A0F600DE11A8 /* MJRefreshConst.m */; };
@@ -192,6 +200,20 @@
 		BCED4ED91BB4E29C0087DCA1 /* AICategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AICategoryViewController.m; sourceTree = "<group>"; };
 		BCED4EE01BB4F3930087DCA1 /* AISettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AISettingViewController.h; sourceTree = "<group>"; };
 		BCED4EE11BB4F3930087DCA1 /* AISettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AISettingViewController.m; sourceTree = "<group>"; };
+		BCED4EE31BB51D4A0087DCA1 /* AIAppModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIAppModel.h; sourceTree = "<group>"; };
+		BCED4EE41BB51D4A0087DCA1 /* AIAppModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIAppModel.m; sourceTree = "<group>"; };
+		BCED4EE71BB5201B0087DCA1 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		BCED4EE81BB5201B0087DCA1 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		BCED4EE91BB5201B0087DCA1 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		BCED4EEA1BB5201B0087DCA1 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		BCED4EEB1BB5201B0087DCA1 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		BCED4EEC1BB5201B0087DCA1 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		BCED4EED1BB5201B0087DCA1 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		BCED4EEE1BB5201B0087DCA1 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		BCED4EEF1BB5201B0087DCA1 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		BCED4EF01BB5201B0087DCA1 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		BCED4EF11BB5201B0087DCA1 /* readMe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = readMe.m; sourceTree = "<group>"; };
+		BCED4EF81BB520290087DCA1 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		BCEEDAB31BB390D700DE11A8 /* AIDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AIDefine.h; sourceTree = "<group>"; };
 		BCEEDAB51BB3A0F600DE11A8 /* MJRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MJRefresh.bundle; sourceTree = "<group>"; };
 		BCEEDAB61BB3A0F600DE11A8 /* MJRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefresh.h; sourceTree = "<group>"; };
@@ -227,6 +249,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCED4EF91BB520290087DCA1 /* libsqlite3.dylib in Frameworks */,
 				BCBB0A5A1BB2CF7E004492D5 /* MessageUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -267,6 +290,7 @@
 		BCBB07501BB28251004492D5 = {
 			isa = PBXGroup;
 			children = (
+				BCED4EF81BB520290087DCA1 /* libsqlite3.dylib */,
 				BCBB0A591BB2CF7E004492D5 /* MessageUI.framework */,
 				BCBB075B1BB28251004492D5 /* AI7.2aixianmian */,
 				BCBB07751BB28251004492D5 /* AI7.2aixianmianTests */,
@@ -502,6 +526,7 @@
 		BCBB09FB1BB2CEBE004492D5 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				BCED4EE61BB5201B0087DCA1 /* FMDB(数据库操作) */,
 				BCEEDAB41BB3A0F600DE11A8 /* Refresh_2014_8_6 */,
 				BCBB0A7B1BB2D2C2004492D5 /* AFNetworking */,
 				BCBB0A341BB2CF02004492D5 /* MMProgressHUD */,
@@ -576,6 +601,8 @@
 				BCBB0A641BB2D0F0004492D5 /* AIDBModel.m */,
 				BCBB0A601BB2D0C4004492D5 /* AIRequestModel.h */,
 				BCBB0A611BB2D0C4004492D5 /* AIRequestModel.m */,
+				BCED4EE31BB51D4A0087DCA1 /* AIAppModel.h */,
+				BCED4EE41BB51D4A0087DCA1 /* AIAppModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -732,6 +759,24 @@
 			children = (
 			);
 			path = VIew;
+			sourceTree = "<group>";
+		};
+		BCED4EE61BB5201B0087DCA1 /* FMDB(数据库操作) */ = {
+			isa = PBXGroup;
+			children = (
+				BCED4EE71BB5201B0087DCA1 /* FMDatabase.h */,
+				BCED4EE81BB5201B0087DCA1 /* FMDatabase.m */,
+				BCED4EE91BB5201B0087DCA1 /* FMDatabaseAdditions.h */,
+				BCED4EEA1BB5201B0087DCA1 /* FMDatabaseAdditions.m */,
+				BCED4EEB1BB5201B0087DCA1 /* FMDatabasePool.h */,
+				BCED4EEC1BB5201B0087DCA1 /* FMDatabasePool.m */,
+				BCED4EED1BB5201B0087DCA1 /* FMDatabaseQueue.h */,
+				BCED4EEE1BB5201B0087DCA1 /* FMDatabaseQueue.m */,
+				BCED4EEF1BB5201B0087DCA1 /* FMResultSet.h */,
+				BCED4EF01BB5201B0087DCA1 /* FMResultSet.m */,
+				BCED4EF11BB5201B0087DCA1 /* readMe.m */,
+			);
+			path = "FMDB(数据库操作)";
 			sourceTree = "<group>";
 		};
 		BCEEDAB21BB390CB00DE11A8 /* Other */ = {
@@ -903,6 +948,7 @@
 				BCE134331BB2D75C00A47439 /* AIBaseTableViewCell.m in Sources */,
 				BCEEDAC91BB3A0F600DE11A8 /* MJRefreshHeaderView.m in Sources */,
 				45753B791BB2FDD4007D6F41 /* AIAppBaseCellModel.m in Sources */,
+				BCED4EF21BB5201B0087DCA1 /* FMDatabase.m in Sources */,
 				BCEEDACA1BB3A0F600DE11A8 /* UIScrollView+Extension.m in Sources */,
 				BCEEDACB1BB3A0F600DE11A8 /* UIScrollView+MJRefresh.m in Sources */,
 				BCBB0AA71BB2D2C2004492D5 /* AFURLConnectionOperation.m in Sources */,
@@ -915,6 +961,8 @@
 				BCBB0AA21BB2D2C2004492D5 /* AFHTTPRequestOperation.m in Sources */,
 				BCED4EE21BB4F3930087DCA1 /* AISettingViewController.m in Sources */,
 				BCBB0AA91BB2D2C2004492D5 /* AFURLResponseSerialization.m in Sources */,
+				BCED4EF31BB5201B0087DCA1 /* FMDatabaseAdditions.m in Sources */,
+				BCED4EF51BB5201B0087DCA1 /* FMDatabaseQueue.m in Sources */,
 				BCBB0A4E1BB2CF02004492D5 /* README.md in Sources */,
 				BCEEDB111BB4155F00DE11A8 /* AITopicSmallAppModel.m in Sources */,
 				BCBB0AAF1BB2D2C2004492D5 /* UIImageView+AFNetworking.m in Sources */,
@@ -927,6 +975,7 @@
 				BCEEDACC1BB3A0F600DE11A8 /* UIView+Extension.m in Sources */,
 				BCBB0A6B1BB2D147004492D5 /* AIRootViewController.m in Sources */,
 				BCBB0A521BB2CF02004492D5 /* MMProgressHUD+Class.m in Sources */,
+				BCED4EE51BB51D4A0087DCA1 /* AIAppModel.m in Sources */,
 				BCBB0A551BB2CF02004492D5 /* MMProgressHUDViewController.m in Sources */,
 				BCBB0AA61BB2D2C2004492D5 /* AFSecurityPolicy.m in Sources */,
 				BCBB0AAA1BB2D2C2004492D5 /* AFURLSessionManager.m in Sources */,
@@ -934,7 +983,9 @@
 				BCBB0AAE1BB2D2C2004492D5 /* UIButton+AFNetworking.m in Sources */,
 				BCBB0A711BB2D21B004492D5 /* AIFreeViewController.m in Sources */,
 				BCBB0AA41BB2D2C2004492D5 /* AFHTTPSessionManager.m in Sources */,
+				BCED4EF61BB5201B0087DCA1 /* FMResultSet.m in Sources */,
 				BCBB0A651BB2D0F0004492D5 /* AIDBModel.m in Sources */,
+				BCED4EF71BB5201B0087DCA1 /* readMe.m in Sources */,
 				BCBB0AA51BB2D2C2004492D5 /* AFNetworkReachabilityManager.m in Sources */,
 				BCBB0A511BB2CF02004492D5 /* MMProgressHUD+Animations.m in Sources */,
 				BCBB0AAB1BB2D2C2004492D5 /* AFNetworkActivityIndicatorManager.m in Sources */,
@@ -942,6 +993,7 @@
 				BCBB0AA81BB2D2C2004492D5 /* AFURLRequestSerialization.m in Sources */,
 				BCEEDB071BB3EB3A00DE11A8 /* AITopicCellView.m in Sources */,
 				BCEEDAC81BB3A0F600DE11A8 /* MJRefreshFooterView.m in Sources */,
+				BCED4EF41BB5201B0087DCA1 /* FMDatabasePool.m in Sources */,
 				BCBB0A581BB2CF02004492D5 /* MMVectorImage.m in Sources */,
 				BCBB0A7A1BB2D255004492D5 /* AIHotViewController.m in Sources */,
 				BCEEDB0B1BB3ED9900DE11A8 /* AITopicSmallView.m in Sources */,
