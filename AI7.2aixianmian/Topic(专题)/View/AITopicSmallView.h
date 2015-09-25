@@ -8,12 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@class AIStarView;
-@interface AITopicView : UIView
+@class AIStarView,AITopicSmallAppModel;
+@interface AITopicSmallView : UIView
 
 @property(nonatomic,strong)UIImageView *smallIconImagV;
 @property(nonatomic,strong)UILabel *titleLabel;
 @property(nonatomic,strong)UILabel *commentLabel;
 @property(nonatomic,strong)UILabel *downLoadLabel;
 @property(nonatomic,strong)AIStarView *startV;
+
+@property(nonatomic,strong)AITopicSmallAppModel *data;
 @end

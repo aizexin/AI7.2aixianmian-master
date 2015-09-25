@@ -28,6 +28,8 @@
     [super viewDidLoad];
     [self.requestModel startRequestInfo];
     [self refreshAndLoad:LIMIT_URL];
+    self.categoryType = CategotyType_LIMIT;
+    self.rootPath = LIMIT_URL;
 }
 
 /*#pragma mark -AIRequestModelDelegate

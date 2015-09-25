@@ -10,6 +10,7 @@
 #import "AIBaseTableViewCell.h"
 #import "MJRefresh.h"
 #import "AIDetailViewController.h"
+#import "AISettingViewController.h"
 @interface AIRootViewController ()
 
 @end
@@ -80,6 +81,13 @@
         self.currentPage = 1;
         //重新拼接接口
         NSString *allPath = [NSString stringWithFormat:path,_currentPage];
+        //判断数据刷新和加载的接口是不是分类后的接口 接口信息带有category_id 的值 证明是分类后的接口
+        //只有点击分类按钮 rootPath中才有categoryId 的值否则就原有接口
+        if ([self.rootPath rangeOfString:@"&category_id"].location != NSNotFound) {
+            allPath = [NSString stringWithFormat:_rootPath,_currentPage];
+        }
+
+        
         AIRequestModel *requestModel = [[AIRequestModel alloc]init];
         requestModel.path = allPath;
         requestModel.delegate = self;
@@ -96,6 +104,12 @@
         self.loading = YES;
         _currentPage ++;
         NSString *allPath = [NSString stringWithFormat:path,_currentPage];
+        
+        //判断数据刷新和加载的接口是不是分类后的接口 接口信息带有category_id 的值 证明是分类后的接口
+        //只有点击分类按钮 rootPath中才有categoryId 的值否则就原有接口
+        if ([self.rootPath rangeOfString:@"&category_id"].location != NSNotFound) {
+            allPath = [NSString stringWithFormat:_rootPath,_currentPage];
+        }
         AIRequestModel *requestModel = [[AIRequestModel alloc]init];
         requestModel.path = allPath;
         requestModel.delegate = self;
@@ -109,7 +123,6 @@
 //只有设置代理的时候才调用协议中的方法
 //由于三个子类请求的数据 对应的格式以及key值完全相同 所以才在这里请求数据
 -(void)requestSendMessage:(NSData *)data andPath:(NSString *)path{
-    
     
     if (_currentPage == 1) {
         [self.dataSource removeAllObjects];
@@ -125,7 +138,27 @@
 
 #pragma mark -点击事件
 -(void)onClickBtn:(UIButton *)btn{
+    if(btn.tag == 1){
+        AICategoryViewController *categoryVC = [[AICategoryViewController alloc]init];
+        categoryVC.delegate = self;
+        categoryVC.cateoryType = self.categoryType;
+        [self.navigationController pushViewController:categoryVC animated:YES];
+    }else{
+        AISettingViewController *settingVC = [[AISettingViewController alloc]init];
+        [self.navigationController pushViewController:settingVC animated:YES];
+    }
+}
+
+#pragma mark -AICategoryViewControllerDelegate
+-(void)categoryAppendCategoryIdMessage:(NSString *)message{
     
+    //初始状态下显示第一页信息
+    _currentPage = 1;
+    self.rootPath = [NSString stringWithFormat:@"%@&category_id=%@",self.rootPath,message];
+    AIRequestModel *model = [[AIRequestModel alloc]init];
+    model.path = [NSString stringWithFormat:_rootPath,_currentPage];
+    model.delegate = self;
+    [model startRequestInfo];
 }
 
 #pragma mark -UITableViewDataSource

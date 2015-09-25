@@ -6,9 +6,13 @@
 //  Copyright (c) 2015年 aizexin. All rights reserved.
 //
 
-#import "AITopicView.h"
+#import "AITopicSmallView.h"
 #import "AIStarView.h"
-@implementation AITopicView
+#import "AITopicSmallAppModel.h"
+#import "UIImageView+AFNetworking.h"
+@implementation AITopicSmallView
+
+
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
@@ -38,9 +42,17 @@
         [self addSubview:_downLoadLabel];
         
         _startV = [[AIStarView alloc]initWithFrame:CGRectMake(55, 35, 90, 12)];
-        
+        [self addSubview:_startV];
     }
     return self;
 }
 
+-(void)setData:(AITopicSmallAppModel *)data{
+    NSURL *iconUrl = [NSURL URLWithString:data.iconUrl];
+    [_smallIconImagV setImageWithURL:iconUrl placeholderImage:[UIImage imageNamed:@"topic_TopicImage_Default"]];
+    _titleLabel.text = data.name;
+    _commentLabel.text = data.ratingOverall;
+    _downLoadLabel.text = data.downloads;
+    [_startV setStarLevel:data.starOverall];
+}
 @end

@@ -14,6 +14,9 @@
 #import "MJRefresh.h"
 #import "AIDefine.h"
 #import "AITopicCellView.h"
+#import "AIAppListView.h"
+#import "AITopicSmallView.h"
+#import "AIStarView.h"
 @interface AITopicViewController ()<AIRequestModelDelegate,UITableViewDataSource,UITableViewDelegate>
 /**
  *  当前页面
@@ -56,6 +59,7 @@
     [self.view addSubview:_tableV];
     [self.requestModel startRequestInfo];
     [self refreshAndLoad];
+    
 }
 
 #pragma mark-刷新加载
@@ -63,9 +67,9 @@
      [self.tableV addHeaderWithCallback:^{
          if (!self.isRefrshing) {
              self.refreshing = YES;
-             if (self.dataSource.count > 0) {
-                 [self.dataSource removeAllObjects];
-             }
+//             if (self.dataSource.count > 0) {
+//                 [self.dataSource removeAllObjects];
+//             }
              [self.requestModel startRequestInfo];
              [self.tableV headerEndRefreshing];
              self.refreshing = NO;
@@ -90,8 +94,12 @@
     
 }
 
+
 #pragma mark -AIRequestModelDelegate
 -(void)requestSendMessage:(NSData *)data andPath:(NSString *)path{
+    if (self.currentPage == 1) {
+        [self.dataSource removeAllObjects];
+    }
     NSArray *array = [NSJSONSerialization JSONObjectWithData:data options:(NSJSONReadingMutableContainers) error:nil];
     [self.dataSource addObjectsFromArray:array];
     [self.tableV reloadData];
@@ -108,11 +116,46 @@
         cell = [[[NSBundle mainBundle]loadNibNamed:@"AITopicCellView" owner:nil options:nil]lastObject];
     }
     //为单元格添加内容
+    AILog(@"indexpath.row = %ld count = %ld",indexPath.row,self.dataSource.count);
     cell.titleLabel.text = self.dataSource[indexPath.row][@"title"];
     [cell.bigImageV setImageWithURL:[NSURL URLWithString:self.dataSource[indexPath.row][@"img"]] placeholderImage:[UIImage imageNamed:@"topic_TopicImage_Default"]];
     [cell.smallImageV setImageWithURL:[NSURL URLWithString:self.dataSource[indexPath.row][@"desc_img"]] placeholderImage:[UIImage imageNamed:@"topic_TopicImage_Default"]];
     cell.detailText.text = self.dataSource[indexPath.row][@"desc"];
+    
+    //防止从影
+    for (UIView *view in cell.contentView.subviews) {
+        if (view.tag > 100) {
+            [view removeFromSuperview];
+        }
+    }
+    //---小tableView数据
+    //获取小的app的个数
+    NSArray *appArray = self.dataSource[indexPath.row][@"applications"];
+    for (int i = 0; i < appArray.count; i++) {
+        AITopicSmallView *topicView = [[AITopicSmallView alloc]initWithFrame:CGRectMake(140, 35+55*i, 170, 55)];
+        NSDictionary *dict = appArray[i];
+        topicView.titleLabel.text = dict[@"name"];
+        [topicView.smallIconImagV setImageWithURL:[NSURL URLWithString:dict[@"iconUrl"] ]placeholderImage:[UIImage imageNamed:@"topic_TopicImage_Default"]];
+        topicView.commentLabel.text = dict[@"ratingOverall"];
+        topicView.downLoadLabel.text = dict[@"downloads"];
+        [topicView.startV setStarLevel:dict[@"starOverall"]];
+        
+        //添加手势
+        topicView.userInteractionEnabled = YES;
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onTopClick:)];
+        [topicView addGestureRecognizer:tap];
+        
+        topicView.tag =  [dict[@"applicationId"] intValue] + 100;
+        //加视图添加单元格上
+        [cell.contentView addSubview:topicView];
+    }
     return cell;
+}
+-(void)onTopClick:(UITapGestureRecognizer*)tap{
+    int index = ((AITopicSmallView*)tap.view).tag -100;
+    AIDetailViewController *detailVC = [[AIDetailViewController alloc]init];
+    detailVC.applicationId = [NSString stringWithFormat:@"%d",index];
+    [self.navigationController pushViewController:detailVC animated:YES];
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 308;

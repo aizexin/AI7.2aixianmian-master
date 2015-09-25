@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AIAppListView.h"
+//@class AISmallTableView;
 
 @interface AITopicCellView : UITableViewCell
 /**
@@ -25,5 +27,8 @@
  *  详情
  */
 @property (weak, nonatomic) IBOutlet UITextView *detailText;
+//@property (weak, nonatomic) IBOutlet AISmallTableView *appListTable;
+//@property (weak, nonatomic) IBOutlet AIAppListView *appList;
+
 
 @end

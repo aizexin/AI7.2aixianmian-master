@@ -27,6 +27,8 @@
     [super viewDidLoad];
       [self.requestModel startRequestInfo];
     [self refreshAndLoad:SALES_URL];
+    self.categoryType = CategotyType_REDUCE;
+    self.rootPath = SALES_URL;
 }
 
 

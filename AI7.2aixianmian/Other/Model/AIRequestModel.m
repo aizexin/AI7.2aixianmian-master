@@ -9,7 +9,7 @@
 #import "AIRequestModel.h"
 #import "MMProgressHUD.h"
 #import "AFHTTPRequestOperationManager.h"
-
+#import "AIDefine.h"
 @implementation AIRequestModel
 
 -(void)startRequestInfo
@@ -27,7 +27,6 @@
     
     //<3>开始请求数据（请求的数据是NSData类型）由于不确定解析以后的数据是使用数组存放还是字典存放 所以将解析功能关闭
     [manager GET:self.path parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
         //<4>将请求的数据反馈给视图控制器
         if([self.delegate respondsToSelector:@selector(requestSendMessage:andPath:)])
         {
