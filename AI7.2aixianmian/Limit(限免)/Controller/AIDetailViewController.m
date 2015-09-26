@@ -201,7 +201,6 @@
 -(void)onClickBtn:(UIButton*)btn{
     switch (btn.tag) {
         case 1:{
-//            [btn setTitle:@"已分享" forState:(UIControlStateDisabled)];
             AIDBModel *dbModel = [AIDBModel shareDBModel];
             [dbModel insertAppModel:_appModel andType:@"share"];
             break;
@@ -209,13 +208,11 @@
          
         case 2:{
             
-//            [btn setTitle:@"已收藏" forState:(UIControlStateDisabled)];
             AIDBModel *dbModel = [AIDBModel shareDBModel];
             [dbModel insertAppModel:_appModel andType:@"collection"];
         }
             break;
         case 3:{
-//            [btn setTitle:@"已下砸" forState:(UIControlStateDisabled)];
             AIDBModel *dbModel = [AIDBModel shareDBModel];
             [dbModel insertAppModel:_appModel andType:@"downLoad"];
         }

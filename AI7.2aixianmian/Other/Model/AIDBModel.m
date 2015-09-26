@@ -69,7 +69,7 @@
 
 //获取相同type的所有应用
 -(NSArray *)allAppWithType:(NSString *)type{
-    NSString *sql = @"select * from appTabel where appTpe = ?";
+    NSString *sql = @"select * from appTable where appType = ?";
     NSMutableArray *arrayM = [NSMutableArray array];
     FMResultSet *reult = [_fmdb executeQuery:sql,type];
     while ([reult next]) {

@@ -55,6 +55,9 @@
 		BCBB0AB01BB2D2C2004492D5 /* UIProgressView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = BCBB0A9D1BB2D2C2004492D5 /* UIProgressView+AFNetworking.m */; };
 		BCBB0AB11BB2D2C2004492D5 /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = BCBB0A9F1BB2D2C2004492D5 /* UIRefreshControl+AFNetworking.m */; };
 		BCBB0AB21BB2D2C2004492D5 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = BCBB0AA11BB2D2C2004492D5 /* UIWebView+AFNetworking.m */; };
+		BCD502E81BB62EE200A9E7BB /* AIDownLoadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCD502E71BB62EE200A9E7BB /* AIDownLoadViewController.m */; };
+		BCD502EC1BB62FD000A9E7BB /* AIUICollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCD502EA1BB62FD000A9E7BB /* AIUICollectionViewCell.m */; };
+		BCD502ED1BB62FD000A9E7BB /* AIUICollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCD502EB1BB62FD000A9E7BB /* AIUICollectionViewCell.xib */; };
 		BCE134331BB2D75C00A47439 /* AIBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCE134321BB2D75C00A47439 /* AIBaseTableViewCell.m */; };
 		BCE134361BB2D77000A47439 /* AIStarView.m in Sources */ = {isa = PBXBuildFile; fileRef = BCE134351BB2D77000A47439 /* AIStarView.m */; };
 		BCED4ED71BB4E0E90087DCA1 /* AICategoryCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = BCED4ED61BB4E0E90087DCA1 /* AICategoryCellView.m */; };
@@ -190,6 +193,11 @@
 		BCBB0A9F1BB2D2C2004492D5 /* UIRefreshControl+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIRefreshControl+AFNetworking.m"; sourceTree = "<group>"; };
 		BCBB0AA01BB2D2C2004492D5 /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
 		BCBB0AA11BB2D2C2004492D5 /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
+		BCD502E61BB62EE200A9E7BB /* AIDownLoadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIDownLoadViewController.h; sourceTree = "<group>"; };
+		BCD502E71BB62EE200A9E7BB /* AIDownLoadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIDownLoadViewController.m; sourceTree = "<group>"; };
+		BCD502E91BB62FD000A9E7BB /* AIUICollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIUICollectionViewCell.h; sourceTree = "<group>"; };
+		BCD502EA1BB62FD000A9E7BB /* AIUICollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIUICollectionViewCell.m; sourceTree = "<group>"; };
+		BCD502EB1BB62FD000A9E7BB /* AIUICollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIUICollectionViewCell.xib; sourceTree = "<group>"; };
 		BCE134311BB2D75C00A47439 /* AIBaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIBaseTableViewCell.h; sourceTree = "<group>"; };
 		BCE134321BB2D75C00A47439 /* AIBaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIBaseTableViewCell.m; sourceTree = "<group>"; };
 		BCE134341BB2D77000A47439 /* AIStarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIStarView.h; sourceTree = "<group>"; };
@@ -736,6 +744,8 @@
 			children = (
 				BCED4EE01BB4F3930087DCA1 /* AISettingViewController.h */,
 				BCED4EE11BB4F3930087DCA1 /* AISettingViewController.m */,
+				BCD502E61BB62EE200A9E7BB /* AIDownLoadViewController.h */,
+				BCD502E71BB62EE200A9E7BB /* AIDownLoadViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -757,6 +767,9 @@
 		BCED4EDF1BB4F3670087DCA1 /* VIew */ = {
 			isa = PBXGroup;
 			children = (
+				BCD502E91BB62FD000A9E7BB /* AIUICollectionViewCell.h */,
+				BCD502EA1BB62FD000A9E7BB /* AIUICollectionViewCell.m */,
+				BCD502EB1BB62FD000A9E7BB /* AIUICollectionViewCell.xib */,
 			);
 			path = VIew;
 			sourceTree = "<group>";
@@ -923,6 +936,7 @@
 			files = (
 				BCBB07681BB28251004492D5 /* Main.storyboard in Resources */,
 				BCBB076D1BB28251004492D5 /* LaunchScreen.xib in Resources */,
+				BCD502ED1BB62FD000A9E7BB /* AIUICollectionViewCell.xib in Resources */,
 				BCEEDAC51BB3A0F600DE11A8 /* MJRefresh.bundle in Resources */,
 				BCEEDB081BB3EB3A00DE11A8 /* AITopicCellView.xib in Resources */,
 				BCBB0A4D1BB2CF02004492D5 /* LICENSE in Resources */,
@@ -971,6 +985,7 @@
 				BCBB0A541BB2CF02004492D5 /* MMProgressHUDOverlayView.m in Sources */,
 				BCEEDAC71BB3A0F600DE11A8 /* MJRefreshConst.m in Sources */,
 				BCBB0A741BB2D229004492D5 /* AIReduceViewController.m in Sources */,
+				BCD502E81BB62EE200A9E7BB /* AIDownLoadViewController.m in Sources */,
 				BCBB0A771BB2D23C004492D5 /* AILimitViewController.m in Sources */,
 				BCEEDACC1BB3A0F600DE11A8 /* UIView+Extension.m in Sources */,
 				BCBB0A6B1BB2D147004492D5 /* AIRootViewController.m in Sources */,
@@ -986,6 +1001,7 @@
 				BCED4EF61BB5201B0087DCA1 /* FMResultSet.m in Sources */,
 				BCBB0A651BB2D0F0004492D5 /* AIDBModel.m in Sources */,
 				BCED4EF71BB5201B0087DCA1 /* readMe.m in Sources */,
+				BCD502EC1BB62FD000A9E7BB /* AIUICollectionViewCell.m in Sources */,
 				BCBB0AA51BB2D2C2004492D5 /* AFNetworkReachabilityManager.m in Sources */,
 				BCBB0A511BB2CF02004492D5 /* MMProgressHUD+Animations.m in Sources */,
 				BCBB0AAB1BB2D2C2004492D5 /* AFNetworkActivityIndicatorManager.m in Sources */,
